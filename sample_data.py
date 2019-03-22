@@ -6,9 +6,9 @@ def get_data_norm():
     data = np.random.normal(1, 3, 900)
     return DataFrame(data = data)
 
-def get_data_csv(filepath = './santaba-demo4.csv'):
+def get_data_csv(filepath = './santaba-demo4.csv', data_column = 'prod08.ld5'):
     data = pd.read_csv(filepath)
-    data = data.rename(columns = {'Time': 'ds', 'prod08.ld5': 'y'})
+    data = data.rename(columns = {'Time': 'ds', data_column: 'y'})
     data.set_index('ds')
     __fix_none_data(data)
     return data
